@@ -3,12 +3,12 @@ import styles from './Home.module.css'
 const Home = () => {
 
     return (
-        <div id='home'>
+        <div id={styles.home}>
             <div className={styles.container}>
                 <div className={styles.content}>
-                    <h1>Hello! I'm Kenneth</h1>
-                    <p>Web Dev</p>
-                    <p>Software Engineer</p>
+                    <h1>Welcome to my business!</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Officia ut esse nihil distinctio commodo soluta laboris ipsum eum occaecat maxime excepteur. Amet at eligendi nulla animi laborum maxime aute.</p>
+                    <button>Check In!</button>
                 </div>
             </div>
         </div>

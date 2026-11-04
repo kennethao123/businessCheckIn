@@ -5,7 +5,9 @@ const NavBar = () => {
 
     return (
         <div id={styles.navigation}>
-            <div className={styles.container}>
+            <div className={`${styles.container} ${styles.navbarLinks}`}>
+                <Link to={'/'}><img src="" alt="logo"/></Link>
+
                 <nav className={styles.navbarMenu}>
                     <ul>
                         <li><Link to='/'>Home</Link></li>
