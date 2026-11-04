@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('./assets/open-sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+
+* {
+    /*add font*/
+    text-align: center;
+    font-family: 'OpenSans', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+

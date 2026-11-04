@@ -1,0 +1,20 @@
+
+.container {
+    /*display: flex;*/
+    /*justify-content: center;*/
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+.textContent {
+    max-width: 30em;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
