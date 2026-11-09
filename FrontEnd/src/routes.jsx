@@ -5,6 +5,7 @@ import Home from './components/Home.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Projects from './components/Projects.jsx'
+import Checkin from './components/Checkin.jsx'
 
 const routes = [
     {
@@ -27,6 +28,10 @@ const routes = [
             {
                 path: '/projects',
                 element: <Projects/>
+            },
+            {
+                path: '/checkin',
+                element: <Checkin/>
             }
         ]
     }
