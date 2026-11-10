@@ -11,6 +11,8 @@ const Checkin = () => {
     const { jwt, user } = useContext(AppContext);
     const navigate = useNavigate();
 
+
+    //any person checks in, save to db
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);

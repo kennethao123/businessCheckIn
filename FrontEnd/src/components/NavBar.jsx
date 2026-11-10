@@ -8,6 +8,7 @@ const NavBar = () => {
     const { jwt, setJwt, user, setUser } = useContext(AppContext);
     const navigate = useNavigate();
 
+    //user logs out
     const logout = () => {
         localStorage.removeItem('jwt')
         localStorage.removeItem('user')

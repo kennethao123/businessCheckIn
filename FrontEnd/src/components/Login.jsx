@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        //login, set user and jwt
+        //login, set user and jwt to localStorage so you don't get kicked out on refresh
         e.preventDefault()
         const formData = new FormData(e.target);
         const response = await fetch(`${url}/api/user/login`, {

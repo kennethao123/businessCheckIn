@@ -7,6 +7,7 @@ const Queue = () => {
     const { jwt, user } = useContext(AppContext);
     const [ queue, setQueue ] = useState([]);
 
+    //displaying createdAt pretty
     const formatDate = (date) => {
         return new Date(date).toLocaleString([], {
             month: "short",
@@ -16,6 +17,7 @@ const Queue = () => {
         })
     }
 
+    //logged in user removes someone from queue
     const removeClick = (id) => {
         const response = fetch(`${url}/api/queue/deleteCheckin/${id}`, {
             method: 'DELETE',
@@ -31,6 +33,7 @@ const Queue = () => {
         }
     }
 
+    //gets all in queue when loading page
     useEffect( () => {
         const getQueue = async () => {
             const response = await fetch(`${url}/api/queue/getQueue`, {
