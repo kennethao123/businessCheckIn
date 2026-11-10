@@ -21,7 +21,17 @@ const checkInDelete = async (req, res) => {
     res.json(response);
 }
 
+const allQueueGet = async (req, res) => {
+    const response = await prisma.queue.findMany({
+        orderBy: {
+            createdAt: 'asc',
+        }
+    });
+    res.json(response);
+}
+
 module.exports = {
     checkInPost,
     checkInDelete,
+    allQueueGet,
 };

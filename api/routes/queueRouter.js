@@ -7,15 +7,8 @@ require('../config/passport.js')
 
 queueRouter.post('/checkin', queueController.checkInPost);
 queueRouter.delete('/deleteCheckin/:id', passport.authenticate("jwt", { session : false }), queueController.checkInDelete);
+queueRouter.get('/getQueue', queueController.allQueueGet);
 
 
-//temp dev for authenticate
-queueRouter.get('/protected', passport.authenticate('jwt', {session: false}),
-    (req, res) => {
-        res.status(200).json({
-            message: 'Authenticated',
-            user: req.user
-        })
-    })
 
 module.exports = queueRouter;

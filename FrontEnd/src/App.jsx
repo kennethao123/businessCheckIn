@@ -9,10 +9,15 @@ import { createContext } from 'react'
 export const AppContext = createContext();
 
 function App() {
+    const [ user, setUser ] = useState(() => {
+        const savedUser = localStorage.getItem('user')
+        return savedUser ? JSON.parse(savedUser) : null;
+    });
+    const [ jwt, setJwt ] = useState(() => localStorage.getItem('jwt'));
 
   return (
     <div>
-        <AppContext value={{}}>
+        <AppContext value={{user, setUser, jwt, setJwt}}>
             <main className={styles.main}>
                 <NavBar/>
                 <Outlet />

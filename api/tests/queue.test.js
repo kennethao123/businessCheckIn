@@ -52,7 +52,6 @@ describe('logged in user deletes checkin', () => {
                 .type('form')
                 .send({ 'username' : 'a', 'password' : 'a'})
 
-            console.log('login body', login.body);
             const response = await request(app)
                 .delete(`/api/queue/deleteCheckin/${row.body.id}`)
                 .set('Authorization', `Bearer ${login.body.token}`)
@@ -71,4 +70,20 @@ describe('logged in user deletes checkin', () => {
         }
     })
 
+})
+
+describe('check queue', () => {
+    test('get queue', async () => {
+        //create queue
+        const queue = await request(app)
+            .post('/api/queue/checkin')
+            .type('form')
+            .send({ 'name' : 'a', 'phoneNumber' : '1111111111'})
+            .expect(200);
+
+        //get queue
+        const response = await request(app)
+            .get('/api/queue/getQueue')
+        assert.notStrictEqual(response.queue, null);
+    })
 })

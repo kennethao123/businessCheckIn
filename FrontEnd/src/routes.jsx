@@ -6,6 +6,8 @@ import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
 import Projects from './components/Projects.jsx'
 import Checkin from './components/Checkin.jsx'
+import Login from './components/Login.jsx'
+import Queue from './components/Queue.jsx'
 
 const routes = [
     {
@@ -32,6 +34,14 @@ const routes = [
             {
                 path: '/checkin',
                 element: <Checkin/>
+            },
+            {
+                path: '/login',
+                element: <Login/>
+            },
+            {
+                path: '/queue',
+                element: <Queue/>
             }
         ]
     }
