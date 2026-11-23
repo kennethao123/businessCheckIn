@@ -11,7 +11,12 @@ function createApp(env) {
     app.use(express.json());
     app.use(cors());
     app.use(express.urlencoded({ extended: true }));
-
+    app.get('/api/health', (req, res) => {
+        res.status(200).json({
+            status: 'ok',
+            message: 'Business Check-In API is running'
+        });
+    });
     app.use('/api/user', userRouter);
     app.use('/api/queue', queueRouter);
     return app;
