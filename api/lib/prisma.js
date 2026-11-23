@@ -7,6 +7,6 @@ import { env } from "cloudflare:workers"
 const connectionString = `${env.DATABASE_URL}`;
 
 const adapter = new PrismaPg({ connectionString });
-const prisma = PrismaClient({ adapter });
+const prisma = new PrismaClient({ adapter });
 
 export { prisma };
