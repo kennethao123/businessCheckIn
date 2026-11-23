@@ -17,6 +17,21 @@ function createApp(env) {
             message: 'Business Check-In API is running'
         });
     });
+
+    app.get('/api/db-health', async (req, res) => {
+        try {
+            await prisma.$queryRaw`SELECT 1`;
+
+            res.json({ status: 'Database connected' });
+        } catch (error) {
+            console.error('Database connection failed:', error);
+
+            res.status(500).json({
+                status: 'Database connection failed',
+                error: error.message
+            });
+        }
+    });
     app.use('/api/user', userRouter);
     app.use('/api/queue', queueRouter);
     return app;
