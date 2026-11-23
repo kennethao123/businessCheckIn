@@ -1,7 +1,8 @@
 const { getPrisma } = require('../lib/prisma.js');
-const prisma = getPrisma();
+
 
 const checkInPost = async (req, res) => {
+    const prisma = getPrisma();
     const response = await prisma.queue.create({
         data: {
             name: req.body.name,
@@ -12,6 +13,7 @@ const checkInPost = async (req, res) => {
 }
 
 const checkInDelete = async (req, res) => {
+    const prisma = getPrisma();
     const response = await prisma.queue.delete({
         where : {
             id: Number(req.params.id),
@@ -22,6 +24,7 @@ const checkInDelete = async (req, res) => {
 }
 
 const allQueueGet = async (req, res) => {
+    const prisma = getPrisma();
     const response = await prisma.queue.findMany({
         orderBy: {
             createdAt: 'asc',

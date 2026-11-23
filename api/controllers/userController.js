@@ -1,9 +1,10 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { getPrisma } = require('../lib/prisma.js');
-const prisma = getPrisma();
+
 
 const signupPost = async ( req, res) => {
+    const prisma = getPrisma();
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = await prisma.user.create({
         data: {
@@ -16,6 +17,7 @@ const signupPost = async ( req, res) => {
 }
 
 const loginPost = async ( req, res) => {
+    const prisma = getPrisma();
     try {
         const user = await prisma.user.findUnique({
             where: {
