@@ -8,14 +8,16 @@ const { createPrisma, getPrisma } = require('./lib/prisma.js')
 
 function createApp(env) {
     const app = express();
+    createPrisma(env);
     const prisma = getPrisma();
+
 
     //if getting data from json
     app.use(express.json());
     app.use(cors());
     app.use(express.urlencoded({ extended: true }));
 
-    createPrisma(env);
+
     app.get('/api/health', (req, res) => {
         res.status(200).json({
             status: 'ok',

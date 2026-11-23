@@ -8,6 +8,7 @@ export const createPrisma = (env) => {
 
     const adapter = new PrismaPg({ connectionString });
     prisma = new PrismaClient({ adapter });
+    return prisma
 
 }
 
