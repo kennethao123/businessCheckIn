@@ -1,5 +1,6 @@
 const passport = require('passport');
-const { prisma } = require('../lib/prisma.js');
+const { getPrisma } = require('../lib/prisma.js');
+const prisma = getPrisma();
 const { Strategy : JwtStrategy, ExtractJwt } = require('passport-jwt');
 
 function configurePassport(secret) {

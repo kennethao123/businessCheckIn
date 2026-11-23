@@ -4,6 +4,8 @@ const cors = require("cors");
 const userRouter = require("./routes/userRouter.js");
 const queueRouter = require("./routes/queueRouter.js");
 
+const { createPrisma } = require('./lib/prisma.js')
+
 function createApp(env) {
     const app = express();
 
@@ -11,6 +13,8 @@ function createApp(env) {
     app.use(express.json());
     app.use(cors());
     app.use(express.urlencoded({ extended: true }));
+
+    createPrisma(env);
     app.get('/api/health', (req, res) => {
         res.status(200).json({
             status: 'ok',
