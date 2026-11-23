@@ -1,6 +1,7 @@
-const { prisma } = require('../lib/prisma.js')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { getPrisma } = require('../lib/prisma.js');
+const prisma = getPrisma();
 
 const signupPost = async ( req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);

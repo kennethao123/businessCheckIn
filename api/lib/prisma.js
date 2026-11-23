@@ -1,12 +1,20 @@
-import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../generated/prisma/client.js";
-import { env } from "cloudflare:workers"
 
+let prisma;
 
-const connectionString = `${env.DATABASE_URL}`;
+export const createPrisma = (env) => {
+    const connectionString = `${env.DATABASE_URL}`;
 
-const adapter = new PrismaPg({ connectionString });
-const prisma = new PrismaClient({ adapter });
+    const adapter = new PrismaPg({ connectionString });
+    prisma = new PrismaClient({ adapter });
 
-export { prisma };
+}
+
+export const getPrisma = () => {
+    if (!prisma) {
+        throw new Error('prisma has not bee initialized');
+    }
+
+    return prisma;
+}

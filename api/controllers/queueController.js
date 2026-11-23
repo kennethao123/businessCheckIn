@@ -1,5 +1,5 @@
-const { prisma } = require('../lib/prisma.js');
-
+const { getPrisma } = require('../lib/prisma.js');
+const prisma = getPrisma();
 
 const checkInPost = async (req, res) => {
     const response = await prisma.queue.create({
