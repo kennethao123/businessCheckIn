@@ -46,7 +46,7 @@ const Queue = () => {
         }
         getQueue();
 
-    }, [queue])
+    }, [])
 
     return (
         <div id={styles.queue}>
