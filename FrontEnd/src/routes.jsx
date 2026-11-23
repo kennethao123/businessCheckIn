@@ -4,7 +4,7 @@ import ErrorPage from "./components/ErrorPage.jsx"
 import Home from './components/Home.jsx'
 import About from './components/About.jsx'
 import Contact from './components/Contact.jsx'
-import Projects from './components/Projects.jsx'
+import Gallery from './components/Gallery.jsx'
 import Checkin from './components/Checkin.jsx'
 import Login from './components/Login.jsx'
 import Queue from './components/Queue.jsx'
@@ -29,7 +29,7 @@ const routes = [
             },
             {
                 path: '/projects',
-                element: <Projects/>
+                element: <Gallery/>
             },
             {
                 path: '/checkin',

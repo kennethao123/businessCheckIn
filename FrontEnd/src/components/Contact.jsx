@@ -10,12 +10,12 @@ const Contact = () => {
                 <div className={styles.cardDiv}>
                     <div className={cardStyles.card}>
                         <h3>Phone</h3>
-                        <h3>(510) 508-7381</h3>
+                        <h3>#######</h3>
                     </div>
 
                     <div className={cardStyles.card}>
                         <h3>Email</h3>
-                        <h3>kennethao123@gmail.com</h3>
+                        <h3>email@email.com</h3>
                     </div>
                 </div>
 
