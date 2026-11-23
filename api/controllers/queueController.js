@@ -24,13 +24,20 @@ const checkInDelete = async (req, res) => {
 }
 
 const allQueueGet = async (req, res) => {
+    console.log('1. Entered allQueueGet');
+
     try {
+        console.log('2. Before getPrisma');
         const prisma = getPrisma();
+
+        console.log('3. Before findMany');
         const response = await prisma.queue.findMany({
             orderBy: {
                 createdAt: 'asc',
             }
         });
+
+        console.log('4. Query succeeded');
         res.json(response);
     } catch (error) {
         console.log('queue get error:', error);
