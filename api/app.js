@@ -4,10 +4,11 @@ const cors = require("cors");
 const userRouter = require("./routes/userRouter.js");
 const queueRouter = require("./routes/queueRouter.js");
 
-const { createPrisma } = require('./lib/prisma.js')
+const { createPrisma, getPrisma } = require('./lib/prisma.js')
 
 function createApp(env) {
     const app = express();
+    const prisma = getPrisma();
 
     //if getting data from json
     app.use(express.json());
