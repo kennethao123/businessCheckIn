@@ -24,13 +24,18 @@ const checkInDelete = async (req, res) => {
 }
 
 const allQueueGet = async (req, res) => {
-    const prisma = getPrisma();
-    const response = await prisma.queue.findMany({
-        orderBy: {
-            createdAt: 'asc',
-        }
-    });
-    res.json(response);
+    try {
+        const prisma = getPrisma();
+        const response = await prisma.queue.findMany({
+            orderBy: {
+                createdAt: 'asc',
+            }
+        });
+        res.json(response);
+    } catch (error) {
+        console.log('queue get error:', error);
+        res.status(500).json({error: error.message});
+    }
 }
 
 module.exports = {
