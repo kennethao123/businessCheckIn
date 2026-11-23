@@ -1,18 +1,22 @@
 const express = require('express');
 const cors = require("cors");
-const app = express();
-require("dotenv").config();
 
 const userRouter = require("./routes/userRouter.js");
 const queueRouter = require("./routes/queueRouter.js");
 
-//if getting data from json
-app.use(express.json());
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+function createApp(env) {
+    const app = express();
 
-app.use('/api/user', userRouter);
-app.use('/api/queue', queueRouter);
+    //if getting data from json
+    app.use(express.json());
+    app.use(cors());
+    app.use(express.urlencoded({ extended: true }));
+
+    app.use('/api/user', userRouter);
+    app.use('/api/queue', queueRouter);
+    return app;
+}
 
 
-module.exports = app;
+
+module.exports = createApp;
