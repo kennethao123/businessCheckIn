@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test": "jest",
-    "watch": "jest --watch"
+    "watch": "jest --watch",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@jest/globals": "^30.5.2",
