@@ -1,12 +1,12 @@
-import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../generated/prisma/client.js";
+import { PrismaNeon } from "@prisma/adapter-neon";
 
 let prisma;
 
 export const createPrisma = (env) => {
     const connectionString = `${env.DATABASE_URL}`;
 
-    const adapter = new PrismaPg({ connectionString });
+    const adapter = new PrismaNeon({ connectionString });
     prisma = new PrismaClient({ adapter });
     return prisma
 

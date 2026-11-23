@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@jest/globals": "^30.5.2",
+    "@prisma/adapter-neon": "^7.10.1",
     "@prisma/adapter-pg": "^7.10.1",
     "@prisma/client": "^7.10.1",
     "@testing-library/jest-dom": "^7.0.1",
