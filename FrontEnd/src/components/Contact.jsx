@@ -2,6 +2,11 @@ import styles from './Contact.module.css'
 import cardStyles from './Card.module.css'
 
 const Contact = () => {
+
+    const newTab = (url) => {
+        // window.open(url, "_blank", 'noopener,noreferrer')
+    }
+
     return (
         <div id="contact">
             <div className={styles.container}>
@@ -16,6 +21,16 @@ const Contact = () => {
                     <div className={cardStyles.card}>
                         <h3>Email</h3>
                         <h3>email@email.com</h3>
+                    </div>
+
+                    <div className={cardStyles.card}>
+                        <h3>Social Media</h3>
+                        <div className={styles.card}>
+                            <div className={styles.buttonsDiv}>
+                                <button onClick={ () => newTab('') }><img className={styles.icon} src={''} alt="ig"/></button>
+                                <button onClick={ () => newTab('') }><img className={styles.icon} src={''} alt="tiktok"/></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
