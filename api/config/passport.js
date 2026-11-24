@@ -3,7 +3,7 @@ const { getPrisma } = require('../lib/prisma.js');
 const { Strategy : JwtStrategy, ExtractJwt } = require('passport-jwt');
 
 function configurePassport(secret) {
-    const prisma = getPrisma();
+    const prisma = req.prisma;
     passport.use(
         new JwtStrategy({
                 jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

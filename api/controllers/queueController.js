@@ -2,7 +2,7 @@ const { getPrisma } = require('../lib/prisma.js');
 
 
 const checkInPost = async (req, res) => {
-    const prisma = getPrisma();
+    const prisma = req.prisma;
     const response = await prisma.queue.create({
         data: {
             name: req.body.name,
@@ -13,7 +13,7 @@ const checkInPost = async (req, res) => {
 }
 
 const checkInDelete = async (req, res) => {
-    const prisma = getPrisma();
+    const prisma = req.prisma;
     const response = await prisma.queue.delete({
         where : {
             id: Number(req.params.id),
@@ -28,7 +28,7 @@ const allQueueGet = async (req, res) => {
 
     try {
         console.log('2. Before getPrisma');
-        const prisma = getPrisma();
+        const prisma = req.prisma;
 
         console.log('3. Before findMany');
         const response = await prisma.queue.findMany({

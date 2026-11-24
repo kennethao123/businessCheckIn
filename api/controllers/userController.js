@@ -4,7 +4,7 @@ const { getPrisma } = require('../lib/prisma.js');
 
 
 const signupPost = async ( req, res) => {
-    const prisma = getPrisma();
+    const prisma = req.prisma;
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = await prisma.user.create({
         data: {
@@ -17,7 +17,7 @@ const signupPost = async ( req, res) => {
 }
 
 const loginPost = async ( req, res) => {
-    const prisma = getPrisma();
+    const prisma = req.prisma;
     try {
         const user = await prisma.user.findUnique({
             where: {

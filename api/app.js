@@ -4,19 +4,20 @@ const cors = require("cors");
 const userRouter = require("./routes/userRouter.js");
 const queueRouter = require("./routes/queueRouter.js");
 
-const { createPrisma, getPrisma } = require('./lib/prisma.js')
+const { createPrisma } = require('./lib/prisma.js')
 
 function createApp(env) {
     const app = express();
-    createPrisma(env);
-    const prisma = getPrisma();
-
 
     //if getting data from json
     app.use(express.json());
     app.use(cors());
     app.use(express.urlencoded({ extended: true }));
 
+    app.use((req, res, next) => {
+        req.prisma = createPrisma(env);
+        next();
+    });
 
     app.get('/api/health', (req, res) => {
         res.status(200).json({
@@ -27,7 +28,7 @@ function createApp(env) {
 
     app.get('/api/db-health', async (req, res) => {
         try {
-            await prisma.$queryRaw`SELECT 1`;
+            await req.prisma.$queryRaw`SELECT 1`;
 
             res.json({ status: 'Database connected' });
         } catch (error) {
