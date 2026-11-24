@@ -1,0 +1,6 @@
+{
+  "name": "businesscheckin",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-23",
+  "compatibility_flags": ["nodejs_compat"]
+}
