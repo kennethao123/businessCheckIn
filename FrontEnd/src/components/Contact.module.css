@@ -4,6 +4,24 @@
     gap: 3rem;
     margin-top: 3rem;
     flex-wrap: wrap;
+
+    button {
+        background: none;
+        border: none;
+        padding: 0.5rem;
+
+
+
+        .icon {
+            max-width: 3rem;
+        }
+    }
+
+    button:hover {
+        background: lightgray;
+        border-radius: 50%;
+    }
+
 }
 
 hr {

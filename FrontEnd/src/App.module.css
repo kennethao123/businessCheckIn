@@ -8,6 +8,9 @@
     /*add font*/
     text-align: center;
     font-family: 'OpenSans', sans-serif;
+
+    box-sizing: border-box;
+
 }
 
 body {

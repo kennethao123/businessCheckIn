@@ -1,6 +1,5 @@
 .card {
-    width: 30vw;
-    height: 50vh;
+    max-width: 20rem;
 
 
     .imgContainer {
